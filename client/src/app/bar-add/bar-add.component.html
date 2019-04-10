@@ -1,0 +1,207 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4"><strong>Bar Name</strong></label>
+        <input type="text" class="form-control" formControlName="bar_name" #bar_name />
+      </div>
+      <div *ngIf="angForm.controls['bar_name'].invalid && (angForm.controls['bar_name'].dirty || angForm.controls['bar_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['bar_name'].errors.required">
+          Bar Name is required.
+        </div>
+      </div>
+
+      <p><strong>Lowest Price</strong></p>
+      <div class="form-group">
+        <label class="col-md-4">Beer On Tap Price</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_on_tap_lowest" #beer_on_tap_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_bottle_lowest" #beer_bottle_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Bucket (per btl)</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_bucket_lowest" #beer_bucket_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Tower</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_tower_lowest" #beer_tower_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Wine Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="wine_glass_lowest" #wine_glass_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Wine Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="wine_bottle_lowest" #wine_bottle_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Whiskey Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="whiskey_glass_lowest" #whiskey_glass_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Whiskey Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="whiskey_bottle_lowest" #whiskey_bottle_lowest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Cocktail Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="cocktail_glass_lowest" #cocktail_glass_lowest />
+      </div>
+
+      <p><strong>Average Price</strong></p>
+      <div class="form-group">
+        <label class="col-md-4">Beer On Tap Price</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_on_tap_average" #beer_on_tap_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_bottle_average" #beer_bottle_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Bucket (per btl)</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_bucket_average" #beer_bucket_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Tower</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_tower_average" #beer_tower_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Wine Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="wine_glass_average" #wine_glass_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Wine Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="wine_bottle_average" #wine_bottle_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Whiskey Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="whiskey_glass_average" #whiskey_glass_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Whiskey Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="whiskey_bottle_average" #whiskey_bottle_average />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Cocktail Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="cocktail_glass_average" #cocktail_glass_average />
+      </div>
+
+      <p><strong>Highest Price</strong></p>
+      <div class="form-group">
+        <label class="col-md-4">Beer On Tap Price</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_on_tap_highest" #beer_on_tap_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_bottle_highest" #beer_bottle_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Bucket (per btl)</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_bucket_highest" #beer_bucket_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Beer Tower</label>
+        <input type="number" min=0 class="form-control" formControlName="beer_tower_highest" #beer_tower_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Wine Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="wine_glass_highest" #wine_glass_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Wine Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="wine_bottle_highest" #wine_bottle_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Whiskey Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="whiskey_glass_highest" #whiskey_glass_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Whiskey Bottle</label>
+        <input type="number" min=0 class="form-control" formControlName="whiskey_bottle_highest" #whiskey_bottle_highest />
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Cocktail Glass</label>
+        <input type="number" min=0 class="form-control" formControlName="cocktail_glass_highest" #cocktail_glass_highest />
+      </div>
+      
+      <div class="form-group">
+          <label class="col-md-4"><strong>Ambience</strong></label>
+          <input type="number" min=1 max=5 pattern="[0-5]{1}" class="form-control" formControlName="ambience" #ambience />
+      </div>
+      <div class="form-group">
+          <label class="col-md-4"><strong>Unique</strong></label>
+          <input type="text" class="form-control" formControlName="unique" #unique />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"><strong>Postal Code</strong></label>
+        <input type="number" min=0 pattern="[0-9]{6}" class="form-control" formControlName="postal_code" #postal_code />
+      </div>
+      <div *ngIf="angForm.controls['postal_code'].invalid && (angForm.controls['postal_code'].dirty || angForm.controls['postal_code'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['postal_code'].errors.required">
+          Postal Code is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4"><strong>Region</strong></label>
+        <select class="form-control" formControlName="region" #region>
+            <option value="all">All</option>
+                  <option value="central">Central </option>
+                  <option value="north">North</option>
+                  <option value="northeast">North East</option>
+                  <option value="east">East</option>
+                  <option value="south">South</option>
+                  <option value="west">West</option>
+                  <option value="northwest">North West</option>
+        </select>
+      </div>
+      <div *ngIf="angForm.controls['region'].invalid && (angForm.controls['region'].dirty || angForm.controls['region'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['region'].errors.required">
+          Region is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button (click)="addBar(bar_name.value, beer_on_tap_lowest.value, beer_bottle_lowest.value, beer_bucket_lowest.value, beer_tower_lowest.value, 
+        wine_glass_lowest.value, wine_bottle_lowest.value, whiskey_glass_lowest.value, whiskey_bottle_lowest.value, cocktail_glass_lowest.value,
+        beer_on_tap_average.value, beer_bottle_average.value, beer_bucket_average.value, beer_tower_average.value, wine_glass_average.value,
+        wine_bottle_average.value, whiskey_glass_average.value, whiskey_bottle_average.value, cocktail_glass_average.value,
+        beer_on_tap_highest.value, beer_bottle_highest.value, beer_bucket_highest.value, beer_tower_highest.value,
+        wine_glass_highest.value, wine_bottle_highest.value, whiskey_glass_highest.value, whiskey_bottle_highest.value, cocktail_glass_highest.value,
+        ambience.value, unique.value,postal_code.value, region.value)"
+            [disabled]="angForm.pristine || angForm.invalid" 
+            class="btn btn-primary">
+            Add Bar
+         </button>
+    </div>
+    </form>
+  </div>
+  <div style="margin-top:20px">
+
+  </div>
+</div>

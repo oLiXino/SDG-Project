@@ -1,0 +1,124 @@
+<div class="jumbotron" style="margin-top:20px">
+  <h1 class="banner">Main Banner for Advertisement $</h1>
+
+  <span class="fa fa-star"></span>
+</div>
+
+<p>Please select the price and drink type</p>
+<select [(ngModel)]="price_selection" (ngModelChange)="sortDefault()">
+        <option value="lowest">Lowest Price</option>
+        <option value="average">Average Price</option>
+        <option value="highest">Highest Price</option>
+</select>
+
+<select [(ngModel)]="drink_type_selection" (ngModelChange)="sortDefault()">
+        <option value="beer">Beer</option>
+        <option value="whiskey">Whiskey</option>
+        <option value="wine">Wine</option>
+        <option value="cocktail">Cocktail</option>
+</select>
+
+<table id="bar_table" class="table table-hover table-borderless" matSort (matSortChange)="sortData($event)" matSortActive="name" matSortDirection="asc">
+  <thead>
+      <tr>
+          <th></th>
+          <th style="text-align:center" colspan="4" *ngIf="drink_type_selection=='beer'">Beer</th>
+          <th style="text-align:center" colspan="2" *ngIf="drink_type_selection=='wine'">Wine</th>
+          <th style="text-align:center" colspan="2" *ngIf="drink_type_selection=='whiskey'">Whiskey</th>
+          <th *ngIf="drink_type_selection=='cocktail'">Cocktail</th>
+
+
+      </tr>
+      <tr > 
+          
+          <th mat-sort-header="name" >Restaurants/Bars</th>
+
+          <th mat-sort-header="beer_on_tap_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">On Tap</th>
+          <th mat-sort-header="beer_bottle_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">Bottle</th>
+          <th mat-sort-header="beer_bucket_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">Bucket</th>
+          <th mat-sort-header="beer_tower_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">Tower</th>
+          <th mat-sort-header="wine_glass_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='wine'">Glass</th>
+          <th mat-sort-header="wine_bottle_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='wine'">Bottle</th>
+          <th mat-sort-header="whiskey_glass_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='whiskey'">Glass</th>
+          <th mat-sort-header="whiskey_bottle_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='whiskey'">Bottle</th>
+          <th mat-sort-header="cocktail_glass_lowest" *ngIf="price_selection=='lowest' && drink_type_selection=='cocktail'">Glass</th>
+
+          <th mat-sort-header="beer_on_tap_average" *ngIf="price_selection=='average' && drink_type_selection=='beer'">On Tap</th>
+          <th mat-sort-header="beer_bottle_average" *ngIf="price_selection=='average' && drink_type_selection=='beer'">Bottle</th>
+          <th mat-sort-header="beer_bucket_average" *ngIf="price_selection=='average' && drink_type_selection=='beer'">Bucket</th>
+          <th mat-sort-header="beer_tower_average" *ngIf="price_selection=='average' && drink_type_selection=='beer'">Tower</th>
+          <th mat-sort-header="wine_glass_average" *ngIf="price_selection=='average' && drink_type_selection=='wine'">Glass</th>
+          <th mat-sort-header="wine_bottle_average" *ngIf="price_selection=='average' && drink_type_selection=='wine'">Bottle</th>
+          <th mat-sort-header="whiskey_glass_average" *ngIf="price_selection=='average' && drink_type_selection=='whiskey'">Glass</th>
+          <th mat-sort-header="whiskey_bottle_average" *ngIf="price_selection=='average' && drink_type_selection=='whiskey'">Bottle</th>
+          <th mat-sort-header="cocktail_glass_average" *ngIf="price_selection=='average' && drink_type_selection=='cocktail'">Glass</th>
+
+          <th mat-sort-header="beer_on_tap_highest" *ngIf="price_selection=='highest' && drink_type_selection=='beer'">On Tap</th>
+          <th mat-sort-header="beer_bottle_highest" *ngIf="price_selection=='highest' && drink_type_selection=='beer'">Bottle</th>
+          <th mat-sort-header="beer_bucket_highest" *ngIf="price_selection=='highest' && drink_type_selection=='beer'">Bucket</th>
+          <th mat-sort-header="beer_tower_highest" *ngIf="price_selection=='highest' && drink_type_selection=='beer'">Tower</th>
+          <th mat-sort-header="wine_glass_highest" *ngIf="price_selection=='highest' && drink_type_selection=='wine'">Glass</th>
+          <th mat-sort-header="wine_bottle_highest" *ngIf="price_selection=='highest' && drink_type_selection=='wine'">Bottle</th>
+          <th mat-sort-header="whiskey_glass_highest" *ngIf="price_selection=='highest' && drink_type_selection=='whiskey'">Glass</th>
+          <th mat-sort-header="whiskey_bottle_highest" *ngIf="price_selection=='highest' && drink_type_selection=='whiskey'">Bottle</th>
+          <th mat-sort-header="cocktail_glass_highest" *ngIf="price_selection=='highest' && drink_type_selection=='cocktail'">Glass</th>
+
+
+          <th mat-sort-header="ambience">Ambience</th>
+          <th>Unique</th>
+          <th>Location
+              <select [(ngModel)]="region_selection" ngInit="region_selection='all'">
+                  <option value="all">All</option>
+                  <option value="central">Central </option>
+                  <option value="north">North</option>
+                  <option value="northeast">North East</option>
+                  <option value="east">East</option>
+                  <option value="south">South</option>
+                  <option value="west">West</option>
+                  <option value="northwest">North West</option>
+              </select>
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+      <ng-container *ngFor="let bar of sorted_bar">
+        <tr *ngIf="bar.region==region_selection || region_selection=='all'" >
+                <td>{{ bar.bar_name || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">{{ bar.beer_on_tap_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">{{ bar.beer_bottle_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">{{ bar.beer_bucket_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='beer'">{{ bar.beer_tower_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='wine'">{{ bar.wine_glass_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='wine'">{{ bar.wine_bottle_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='whiskey'">{{ bar.whiskey_glass_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='whiskey'">{{ bar.whiskey_bottle_lowest || "NA"}}</td>
+                <td *ngIf="price_selection=='lowest' && drink_type_selection=='cocktail'">{{ bar.cocktail_glass_lowest || "NA"}}</td>
+
+
+                <td *ngIf="price_selection=='average' && drink_type_selection=='beer'">{{ bar.beer_on_tap_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='beer'">{{ bar.beer_bottle_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='beer'">{{ bar.beer_bucket_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='beer'">{{ bar.beer_tower_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='wine'">{{ bar.wine_glass_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='wine'">{{ bar.wine_bottle_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='whiskey'">{{ bar.whiskey_glass_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='whiskey'">{{ bar.whiskey_bottle_average || "NA"}}</td>
+                <td *ngIf="price_selection=='average' && drink_type_selection=='cocktail'">{{ bar.cocktail_glass_average || "NA"}}</td>
+
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='beer'">{{ bar.beer_on_tap_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='beer'">{{ bar.beer_bottle_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='beer'">{{ bar.beer_bucket_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='beer'">{{ bar.beer_tower_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='wine'">{{ bar.wine_glass_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='wine'">{{ bar.wine_bottle_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='whiskey'">{{ bar.whiskey_glass_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='whiskey'">{{ bar.whiskey_bottle_highest || "NA"}}</td>
+                <td *ngIf="price_selection=='highest' && drink_type_selection=='cocktail'">{{ bar.cocktail_glass_highest || "NA"}}</td>
+                <td><span *ngFor="let star of ambienceArray(bar.ambience)" class ="fa fa-star checked"></span></td>
+                <td>{{bar.unique|| "NA"}}</td>
+                <td>{{ bar.postal_code || "NA"}}</td>
+
+        </tr>
+    </ng-container>
+  </tbody>
+</table>

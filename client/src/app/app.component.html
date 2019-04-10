@@ -1,0 +1,48 @@
+<ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
+
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav" style="margin-left:10%">
+      <li class="nav-item">
+          <a routerLink="bar" class="nav-link" routerLinkActive="active">
+            Shamrock Drinking Guru
+          </a>
+      </li>
+      <li class="nav-item" *ngIf="code===admincode" >
+        <a routerLink="bar/create" class="nav-link" routerLinkActive="active">
+          Create Bar
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="code===admincode" >
+        <a routerLink="bar/admin" class="nav-link" routerLinkActive="active">
+          Update/Delete Bar
+        </a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="about-us" class="nav-link" routerLinkActive="active">
+            About Us  
+          </a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="news" class="nav-link" routerLinkActive="active">
+            News & Promotions
+          </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-sm bg-light fixed-bottom">
+    <div class="container-fluid">
+      <ul class="navbar-nav" style="margin-left:10%">
+        <li class="nav-item">
+          <span style="color:blue"><strong>Code </strong></span>
+          <input type="password" id="code_input" [(ngModel)]=code>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
