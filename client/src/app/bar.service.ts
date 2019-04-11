@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BarService {
 
-  uri = 'http://localhost:4000/bar';
+  uri = 'bar';
 
   constructor(private http: HttpClient) { }
 
