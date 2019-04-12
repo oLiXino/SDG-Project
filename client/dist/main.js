@@ -954,7 +954,7 @@ __webpack_require__.r(__webpack_exports__);
 var BarService = /** @class */ (function () {
     function BarService(http) {
         this.http = http;
-        this.uri = 'http://localhost:4000/bar';
+        this.uri = 'bar';
     }
     BarService.prototype.addBar = function (bar_name, beer_on_tap_lowest, beer_bottle_lowest, beer_bucket_lowest, beer_tower_lowest, wine_glass_lowest, wine_bottle_lowest, whiskey_glass_lowest, whiskey_bottle_lowest, cocktail_glass_lowest, beer_on_tap_average, beer_bottle_average, beer_bucket_average, beer_tower_average, wine_glass_average, wine_bottle_average, whiskey_glass_average, whiskey_bottle_average, cocktail_glass_average, beer_on_tap_highest, beer_bottle_highest, beer_bucket_highest, beer_tower_highest, wine_glass_highest, wine_bottle_highest, whiskey_glass_highest, whiskey_bottle_highest, cocktail_glass_highest, ambience, unique, postal_code, region) {
         var obj = {
@@ -1081,7 +1081,7 @@ __webpack_require__.r(__webpack_exports__);
 var BusinessService = /** @class */ (function () {
     function BusinessService(http) {
         this.http = http;
-        this.uri = 'http://localhost:4000/business';
+        this.uri = 'business';
     }
     BusinessService.prototype.addBusiness = function (person_name, business_name, business_gst_number) {
         var obj = {
