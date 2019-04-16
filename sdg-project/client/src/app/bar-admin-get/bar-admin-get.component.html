@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-sm bg-dark">
+  <a href="main.html" class="logo">Shamrock Drinking Guide</a>
+  <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="promotion.html">News & Promotions</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="moment.html">Special Moments</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+      </li>
+  </ul>
+</nav>
+
+<div class="jumbotron">
+  <h1 class="banner">Main Banner for Advertisement $</h1>
+</div>
+
+
+
+<table id="bar_table" class="table table-hover table-borderless" matSort (matSortChange)="sortData($event)">
+  <thead>
+      <tr>
+          <th mat-sort-header="name">Bar</th>
+
+          
+          <th>Location
+              <select [(ngModel)]="region_selection" ngInit="region_selection='all'">
+                  <option value="all">All</option>
+                  <option value="central">Central </option>
+                  <option value="north">North</option>
+                  <option value="south">South</option>
+                  <option value="east">East</option>
+                  <option value="west">West</option>
+                  <option value="southeast">South East</option>
+                  <option value="southwest">South West</option>
+                  <option value="northeast">North East</option>
+                  <option value="northwest">North West</option>
+              </select>
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+      <ng-container *ngFor="let bar of sorted_bar">
+        <tr *ngIf="bar.region==region_selection || region_selection=='all'">
+                <td>{{ bar.bar_name }}</td>                
+                <td>{{ bar.postal_code }}</td>
+                <td><a [routerLink]="['edit', bar._id]" class="btn btn-primary" style="color:white">Edit</a></td>
+                <td><a (click) = "deleteBar(bar._id)" class="btn btn-danger" style="color:white">Delete</a></td>
+
+        </tr>
+    </ng-container>
+  </tbody>
+</table>
